@@ -1,0 +1,40 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 15px 10px -15px grey;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Sequel Sans Heavy Head', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  color: #4C4C4E;
+}
+
+#logo-link {
+  text-decoration: none;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0C79BE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 5px;
+  font-size: 15px;
+  color: white;
+}
+
+.cart-link {
+  text-decoration: none;
+  color: #4C4C4E;
+  font-size: 18px;
+}
