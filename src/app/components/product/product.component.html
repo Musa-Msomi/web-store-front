@@ -1,0 +1,7 @@
+<div class="card">
+  <img [src]="product.image" alt="Product Image" />
+  <h2>{{ product.title }}</h2>
+  <span>${{ product.price }}</span>
+  <input type="number" [(ngModel)]="quantity" min="1" max="10" />
+  <button (click)="addToCart()">Add to Cart</button>
+</div>
