@@ -1,0 +1,22 @@
+<div *ngIf="!isLoading">
+  <div *ngFor="let cart of carts" class="cart-item">
+    <div class="product-list">
+      <div *ngFor="let product of cart.products" class="product-item">
+        <img [src]="getProductImage(product.productId)" alt="Product Image" />
+        <div class="product-info">
+          <p class="product-title">{{ getProductTitle(product.productId) }}</p>
+          <p>Quantity: {{ product.quantity }}</p>
+          <p>
+            Total price for product(s):
+            {{
+              getProductPrice(product.productId) * product.quantity | currency
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div class="grand-total">Total: {{ grandTotal | currency }}</div>
+</div>
+<div *ngIf="isLoading">Loading...</div>

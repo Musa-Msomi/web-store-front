@@ -1,0 +1,44 @@
+.cart-item {
+    margin-bottom: 20px;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    object-fit: contain; 
+    border-radius: 4px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-title {
+    font-weight: bold;
+  }
+  
+  .grand-total {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  
