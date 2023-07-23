@@ -24,4 +24,20 @@ export class ProductComponent {
       });
     }
   }
+  productRatingAsStars(rate: number): string {
+    const roundedRate = Math.round(rate * 2) / 2; 
+    const fullStars = Math.floor(roundedRate);
+    const halfStar = roundedRate % 1 !== 0;
+  
+    let starRating = '';
+    for (let i = 0; i < fullStars; i++) {
+      starRating += '★'; 
+    }
+    if (halfStar) {
+      starRating += '½'; 
+    }
+  
+    return starRating;
+  }
+  
 }
