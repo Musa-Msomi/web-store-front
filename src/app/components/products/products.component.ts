@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 import { Cart } from 'src/app/interfaces/cart';
 import { CartProduct } from 'src/app/interfaces/cart-product';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   showCart: boolean = false;
   selectedCategory: string | undefined;
+  private productsSubscription: Subscription | undefined;
 
   constructor(
     private productService: ProductService,
@@ -23,9 +25,11 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    this.productsSubscription = this.productService
+      .getProducts()
+      .subscribe((products) => {
+        this.products = products;
+      });
   }
 
   addToCart({
@@ -84,5 +88,10 @@ export class ProductsComponent implements OnInit {
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
     });
+  }
+  ngOnDestroy(): void {
+    if (this.productsSubscription) {
+      this.productsSubscription.unsubscribe();
+    }
   }
 }
