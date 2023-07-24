@@ -1,6 +1,9 @@
 # Takealittle
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+![productList](https://github.com/Musa-Msomi/web-store-front/assets/99795075/0cfbcaef-732f-4327-a751-b6e807cdb785)
+![cart](https://github.com/Musa-Msomi/web-store-front/assets/99795075/5b195174-6954-4fed-a8c2-71c7d2ff3bc0)
+
 
 ## Development server
 
