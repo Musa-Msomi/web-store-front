@@ -6,6 +6,7 @@ import { Cart } from 'src/app/interfaces/cart';
 import { CartProduct } from 'src/app/interfaces/cart-product';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -21,17 +22,37 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor(
     private productService: ProductService,
     private cartService: CartService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const category = params['category'];
+      if (category) {
+        this.selectedCategory = category;
+        this.loadProductsByCategory(category);
+      } else {
+        this.loadProducts();
+      }
+    });
+  }
+  loadProducts(): void {
     this.productsSubscription = this.productService
       .getProducts()
       .subscribe((products) => {
         this.products = products;
+        this.selectedCategory = undefined;
       });
   }
-
+  loadProductsByCategory(category: string): void {
+    this.productsSubscription = this.productService
+      .getProductsByCategory(category)
+      .subscribe((products) => {
+        this.products = products;
+        this.selectedCategory = category;
+      });
+  }
   addToCart({
     productId,
     quantity,
