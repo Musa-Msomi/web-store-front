@@ -43,5 +43,18 @@ nav {
   text-decoration: none;
   color: #4C4C4E;
   font-size: 18px;
+  margin-left: auto;
 }
-
+.categories {
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  
+}
+.categories a {
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+  color: #4C4C4E;
+  font-size: 18px;
+}

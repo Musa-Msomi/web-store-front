@@ -1,9 +1,19 @@
 <nav>
-  <a id="logo-link" href="/" >
+  <a id="logo-link" href="/">
     <div class="logo">
       <span>takealittle</span>
       <span class="circle">com</span>
     </div>
   </a>
-  <a class="cart-link" routerLink="/cart"> <i class="fas fa-shopping-cart"></i></a>
+  <div class="categories">
+    <a (click)="loadProductsByCategory('electronics')"> Electronics</a>
+    <a (click)="loadProductsByCategory('jewelery')"> Jewelery</a>
+    <a (click)="loadProductsByCategory('men\'s clothing')"> Men's Clothing</a>
+    <a (click)="loadProductsByCategory('women\'s clothing')"
+      >Women's Clothing</a
+    >
+  </div>
+  <a class="cart-link" routerLink="/cart">
+    <i class="fas fa-shopping-cart"></i
+  ></a>
 </nav>
