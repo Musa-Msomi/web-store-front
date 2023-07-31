@@ -5,7 +5,15 @@
         <img [src]="getProductImage(product.productId)" alt="Product Image" />
         <div class="product-info">
           <p class="product-title">{{ getProductTitle(product.productId) }}</p>
-          <p>Quantity: {{ product.quantity }}</p>
+          <p>
+            <input
+              type="number"
+              [(ngModel)]="product.quantity"
+              (change)="updateQuantity(cart, product.productId, product.quantity)"
+              min="1"
+            />
+            <button (click)="removeProduct(cart, product.productId)">Remove</button>
+          </p>
           <p>
             Total price for product(s):
             {{
@@ -16,6 +24,9 @@
       </div>
     </div>
     <hr />
+    <button (click)="clearCart()"  [ngStyle]="isCartEmpty() ? { 'background-color': '#0C79BE' } : {}">
+      {{ isCartEmpty() ? 'Continue Shopping' : 'Clear Cart' }}
+    </button>
   </div>
   <div class="grand-total">Total: {{ grandTotal | currency }}</div>
 </div>
